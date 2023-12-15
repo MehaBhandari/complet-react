@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
+export default function AppComponent (props) {
+  props.salary[0] = 100;
+  props.userName.firstName = "Mayank";
+  let totalSalary = props.salary.reduce((e, acc) => e + acc, 0);
+  let [counter, setCounter] = useState(0);
+  let [otherCounter, setOtherCounter] = useState(0);
+  
+  setTimeout(() => {
+
+    setCounter(++counter);
+
+    setOtherCounter((initialValue) => {
+      return initialValue + 1;
+    });
+  }, 1000)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <h1>User name is: {props.userName.firstName} {props.userName.lastName} </h1>
+      <h2>Total salary: {totalSalary} </h2>
+      <h2>Counter is: {counter}</h2>
+      <h2>Other Counter is: {otherCounter}</h2>
+    </>
+  )
 }
-
-export default App;
