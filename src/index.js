@@ -9,12 +9,22 @@ let userName = {
   firstName: "Meha",
   lastName: "Bhandari"
 }
+/*
+  Props are read-only. 
+  In order to pass array and obj in immutable format,
+  we spread the array and de-structure the obj.
+*/
+
 root.render(
   <React.StrictMode>
     <AppComponent salary={[...salary]} userName={{...userName}} />
   </React.StrictMode>
 );
 
+/* 
+  Below 2 setTimeout are to check if the data updations 
+  in props (in app.js file) will update the source as well or not.
+*/
 setTimeout(() => {
   console.log("salary: ", salary);
 }, 5000);
