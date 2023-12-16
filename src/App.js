@@ -1,4 +1,5 @@
 import Counter from "./components/counter/counter";
+import UseEffectWithButton from "./components/useEffect/useEffectWithButton";
 
 export default function AppComponent (props) {
   props.salary[0] = 100;
@@ -12,6 +13,8 @@ export default function AppComponent (props) {
       <h1>User name is: {props.userName.firstName} {props.userName.lastName} </h1>
       <h2>Total salary: {totalSalary} </h2>
       <Counter></Counter>
+      <hr/>
+      <UseEffectWithButton/>
     </>
   )
 }
